@@ -23,6 +23,8 @@ if [ -d "$DIR" ]; then
   ### Take action if $DIR exists ###
   # echo "Installing config files in ${DIR}..."
   cd supervisord-research
+  git add .
+  git reset --h HEAD
   git pull
 else
   ###  Control will jump here if $DIR does NOT exists ###
