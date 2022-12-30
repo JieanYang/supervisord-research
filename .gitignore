@@ -7,3 +7,6 @@ debug
 go-debug.json
 vendor
 supervisord_linux_amd64
+
+# Add by Jiean
+third_script_output.txt
