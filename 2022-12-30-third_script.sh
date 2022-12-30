@@ -33,7 +33,17 @@ else
 fi
 
 # Build supervisord
+FILE="./supervisord"
+if [ -f "$FILE" ]; then
+    rm $FILE
+fi
 go build
+
+FILE="./go_test_api/go_test_api"
+if [ -f "$FILE" ]; then
+    rm $FILE
+fi
+go build "./go_test_api/go_test_api.go"
 
 # Start service
 ./supervisord -c supervisor-linux.conf
