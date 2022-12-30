@@ -18,8 +18,19 @@ go version
 
 # Pull github
 cd ~
-git clone https://github.com/JieanYang/supervisord-research.git
-cd supervisord-research
+DIR="~/supervisord-research"
+if [ -d "$DIR" ]; then
+  ### Take action if $DIR exists ###
+  # echo "Installing config files in ${DIR}..."
+  cd supervisord-research
+  git pull
+else
+  ###  Control will jump here if $DIR does NOT exists ###
+  # echo "Error: ${DIR} not found. Can not continue."
+  # exit 1
+  git clone https://github.com/JieanYang/supervisord-research.git
+  cd supervisord-research
+fi
 
 # Build supervisord
 go build
