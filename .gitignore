@@ -11,3 +11,5 @@ supervisord_linux_amd64
 # Add by Jiean
 go_test_api/go_test_api
 go_test_api/go_test_api.exe
+go_test_api/go_test_api_stderr.log
+go_test_api/go_test_api_stdout.log
