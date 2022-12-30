@@ -1,4 +1,4 @@
-package main
+package go_test_api
 
 import (
 	"fmt"
