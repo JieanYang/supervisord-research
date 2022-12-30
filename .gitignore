@@ -13,3 +13,5 @@ go_test_api/go_test_api
 go_test_api/go_test_api.exe
 go_test_api/go_test_api_stderr.log
 go_test_api/go_test_api_stdout.log
+supervisord.log
+supervisord.pid
