@@ -10,9 +10,11 @@ sudo yum update -y
 
 # Install git
 sudo yum install git -y
+git version
 
 # Install go
 sudo yum install golang -y
+go version
 
 # Pull github
 cd ~
