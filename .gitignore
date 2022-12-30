@@ -9,4 +9,5 @@ vendor
 supervisord_linux_amd64
 
 # Add by Jiean
-third_script_output.txt
+go_test_api/go_test_api
+go_test_api/go_test_api.exe
