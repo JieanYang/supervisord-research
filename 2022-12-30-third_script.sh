@@ -18,7 +18,7 @@ go version
 
 # Pull github
 cd ~
-DIR="~/supervisord-research"
+DIR=~/supervisord-research
 if [ -d "$DIR" ]; then
   ### Take action if $DIR exists ###
   # echo "Installing config files in ${DIR}..."
@@ -33,17 +33,17 @@ else
 fi
 
 # Build supervisord
-FILE="./supervisord"
+FILE=./supervisord
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
 go build
 
-FILE="./go_test_api/go_test_api"
+FILE=./go_test_api/go_test_api
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
-go build "./go_test_api/go_test_api.go"
+go build -o ./go_test_api/go_test_api ./go_test_api/go_test_api.go
 
 # Start service
 ./supervisord -c supervisor-linux.conf
