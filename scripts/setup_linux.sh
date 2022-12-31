@@ -48,12 +48,12 @@ fi
 go build -o ./go_test_api/go_test_api ./go_test_api/go_test_api.go
 chmod +x ./go_test_api/go_test_api
 
+# Copy binary app
 FILE=/usr/local/bin/go_test_api
 if [ -f "$FILE" ]; then
-    rm $FILE
+    sudo rm $FILE
 fi
-# Create link file
-sudo ln -s ./go_test_api/go_test_api /usr/local/bin/go_test_api
+sudo cp ./go_test_api/go_test_api /usr/local/bin/go_test_api
 
 # Start service
 ./supervisord -c supervisord-linux.conf -d
