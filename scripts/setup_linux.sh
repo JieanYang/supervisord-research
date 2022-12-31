@@ -56,4 +56,7 @@ fi
 sudo cp ./go_test_api/go_test_api /usr/local/bin/go_test_api
 
 # Start service
-./supervisord -c supervisord-linux.conf -d
+# ./supervisord -c supervisord-linux.conf -d
+
+# Register service as daemon
+sudo ./supervisord service install -c ~/supervisord-research/supervisord-linux.conf
