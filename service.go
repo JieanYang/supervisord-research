@@ -49,6 +49,7 @@ func (sc ServiceCommand) Execute(args []string) error {
 		DisplayName: "go-supervisord",
 		Description: "Supervisord service in golang",
 		Arguments:   serviceArgs,
+		// Executable: "C:\\windows\\system32\\cmd.exe", // For windows
 	}
 	prg := &program{}
 	s, err := service.New(prg, svcConfig)
