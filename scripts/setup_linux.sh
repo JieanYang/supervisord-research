@@ -53,7 +53,7 @@ if [ -f "$FILE" ]; then
     rm $FILE
 fi
 # Create link file
-ln -s ./go_test_api/go_test_api /usr/local/bin/go_test_api
+sudo ln -s ./go_test_api/go_test_api /usr/local/bin/go_test_api
 
 # Start service
 ./supervisord -c supervisord-linux.conf -d
