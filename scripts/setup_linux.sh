@@ -49,4 +49,4 @@ go build -o ./go_test_api/go_test_api ./go_test_api/go_test_api.go
 chmod +x ./go_test_api/go_test_api
 
 # Start service
-./supervisord -c supervisor-linux.conf -d
+./supervisord -c supervisord-linux.conf -d
