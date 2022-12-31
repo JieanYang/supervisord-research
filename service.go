@@ -45,8 +45,8 @@ func (sc ServiceCommand) Execute(args []string) error {
 	}
 
 	svcConfig := &service.Config{
-		Name:        "go-supervisord",
-		DisplayName: "go-supervisord",
+		Name:        "Go-supervisord",
+		DisplayName: "Go-supervisord",
 		Description: "Supervisord service in golang",
 		Arguments:   serviceArgs,
 	}

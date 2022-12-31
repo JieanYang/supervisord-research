@@ -62,8 +62,8 @@ go version
 # sudo cp ./go_test_api/go_test_api /usr/local/bin/go_test_api
 
 # # Start service
-# # ./supervisord -c supervisord-linux.conf -d
+# # .\supervisord.exe -c .\supervisord-windows.conf
 
 # # Register service as daemon
-# sudo ./supervisord service install -c ~/supervisord-research/supervisord-linux.conf
-# sudo ./supervisord service start
+# # .\supervisord.exe service install -c .\supervisord-windows.conf
+# # .\supervisord.exe service start
