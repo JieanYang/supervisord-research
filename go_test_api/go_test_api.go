@@ -8,7 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", rootHandler)
-	
+
 	err := http.ListenAndServe(":9001", nil)
 	if err != nil {
 		panic(err)
@@ -18,8 +18,6 @@ func main() {
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<h1>Go - Hello World</h1>")
 }
-
-
 
 // func startHttpServer(wg *sync.WaitGroup) *http.Server {
 //     srv := &http.Server{Addr: ":9001"}
