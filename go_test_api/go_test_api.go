@@ -4,15 +4,24 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"sync"
 )
 
 func main() {
-	http.HandleFunc("/", rootHandler)
+	wg := new(sync.WaitGroup)
 
-	err := http.ListenAndServe(":9001", nil)
-	if err != nil {
-		panic(err)
-	}
+	wg.Add(1)
+	go func() {
+		http.HandleFunc("/", rootHandler)
+
+		wg.Done()
+		err := http.ListenAndServe(":9001", nil)
+		if err != nil {
+			panic(err)
+		}
+	}()
+
+	wg.Wait()
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
