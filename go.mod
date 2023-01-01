@@ -3,6 +3,7 @@ module github.com/ochinchina/supervisord
 go 1.17
 
 require (
+	github.com/evanphx/wildcat v0.0.0-20141114174135-e7012f664567
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/rpc v1.2.0
 	github.com/jessevdk/go-flags v1.5.0
@@ -20,6 +21,7 @@ require (
 	github.com/ochinchina/supervisord/types v0.0.0-20220520055329-8fdf6b62a44f
 	github.com/ochinchina/supervisord/util v0.0.0-20220721095143-c2527852d28f
 	github.com/ochinchina/supervisord/xmlrpcclient v0.0.0-20220520055329-8fdf6b62a44f
+	github.com/panjf2000/gnet/v2 v2.2.2
 	github.com/prometheus/client_golang v1.12.2
 	github.com/sirupsen/logrus v1.9.0
 )
@@ -36,10 +38,13 @@ require (
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/rogpeppe/go-charset v0.0.0-20190617161244-0dc95cdf6f31 // indirect
-	github.com/stretchr/testify v1.7.1 // indirect
-	golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8 // indirect
+	github.com/vektra/errors v0.0.0-20140903201135-c64d83aba85a // indirect
+	go.uber.org/atomic v1.10.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/zap v1.21.0 // indirect
+	golang.org/x/sys v0.3.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 )
 
 replace (
