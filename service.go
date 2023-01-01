@@ -21,7 +21,9 @@ func (p *program) Start(s service.Service) error {
 	return nil
 }
 
-func (p *program) run() {}
+func (p *program) run() {
+	// Do work here
+}
 
 // Stop supervised service
 func (p *program) Stop(s service.Service) error {
