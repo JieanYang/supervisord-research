@@ -65,5 +65,5 @@ go version
 # # .\supervisord.exe -c .\supervisord-windows.conf
 
 # # Register service as daemon
-# # .\supervisord.exe service install -c .\supervisord-windows.conf
+# # .\supervisord.exe service install -c C:\Users\yja85\Desktop\work\supervisord-research\supervisord-windows.conf
 # # .\supervisord.exe service start
