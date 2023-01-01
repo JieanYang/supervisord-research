@@ -14,11 +14,11 @@ func main() {
 	go func() {
 		http.HandleFunc("/", rootHandler)
 
-		wg.Done()
 		err := http.ListenAndServe(":9001", nil)
 		if err != nil {
 			panic(err)
 		}
+		wg.Done()
 	}()
 
 	wg.Wait()
