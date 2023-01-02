@@ -59,6 +59,7 @@ func (sc ServiceCommand) Execute(args []string) error {
 	}
 
 	action := args[0]
+	fmt.Println("action", action)
 	switch action {
 	case "install":
 		err := s.Install()
@@ -89,6 +90,7 @@ func (sc ServiceCommand) Execute(args []string) error {
 			fmt.Println("Succeed to uninstall service go-supervisord")
 		}
 	case "start":
+		fmt.Println("start case")
 		err := s.Start()
 		if err != nil {
 			log.Error("Failed to start service: ", err)
