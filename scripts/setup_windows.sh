@@ -65,5 +65,5 @@ sudo cp ./go_test_api/go_test_api /usr/local/bin/go_test_api
 # .\supervisord.exe -c .\supervisord-windows.conf
 
 # Register service as daemon
-# .\supervisord.exe service install -c C:\Users\yja85\Desktop\work\supervisord-research\supervisord-windows.conf
+# .\supervisord.exe service install -c C:\Users\Jiean\Desktop\work\supervisord-research\supervisord-windows.conf
 # .\supervisord.exe service start
