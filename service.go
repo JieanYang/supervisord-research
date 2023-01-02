@@ -17,7 +17,6 @@ type program struct{}
 
 // Start supervised service
 func (p *program) Start(s service.Service) error {
-	fmt.Println("start method")
 	go p.run()
 	return nil
 }
