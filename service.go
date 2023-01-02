@@ -2,15 +2,10 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 
 	"github.com/kardianos/service"
 	log "github.com/sirupsen/logrus"
 )
-
-func rootHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Go - Hello World</h1>")
-}
 
 // ServiceCommand install/uninstall/start/stop supervisord service
 type ServiceCommand struct {
@@ -26,15 +21,7 @@ func (p *program) Start(s service.Service) error {
 	return nil
 }
 
-func (p *program) run() {
-	// Do work here
-	http.HandleFunc("/", rootHandler)
-
-	err := http.ListenAndServe(":9001", nil)
-	if err != nil {
-		panic(err)
-	}
-}
+func (p *program) run() {}
 
 // Stop supervised service
 func (p *program) Stop(s service.Service) error {
