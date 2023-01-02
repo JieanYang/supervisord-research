@@ -17,6 +17,7 @@ type program struct{}
 
 // Start supervised service
 func (p *program) Start(s service.Service) error {
+	fmt.Println("start method")
 	go p.run()
 	return nil
 }
@@ -70,14 +71,14 @@ func (sc ServiceCommand) Execute(args []string) error {
 			fmt.Println("Succeed to install service go-supervisord")
 		}
 
-		err_2 := s.Start()
-		if err_2 != nil {
-			log.Error("Failed to start service: ", err_2)
-			fmt.Println("Failed to start service: ", err_2)
-			return err_2
-		} else {
-			fmt.Println("Succeed to start service go-supervisord")
-		}
+		// err_2 := s.Start()
+		// if err_2 != nil {
+		// 	log.Error("Failed to start service: ", err_2)
+		// 	fmt.Println("Failed to start service: ", err_2)
+		// 	return err_2
+		// } else {
+		// 	fmt.Println("Succeed to start service go-supervisord")
+		// }
 	case "uninstall":
 		s.Stop()
 		err := s.Uninstall()
