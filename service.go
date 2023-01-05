@@ -21,12 +21,30 @@ func (p *program) Start(s service.Service) error {
 	return nil
 }
 
-func (p *program) run() {}
+func (p *program) run() {
+	runServer()
+}
 
 // Stop supervised service
 func (p *program) Stop(s service.Service) error {
 	// Stop should not block. Return with a few seconds.
 	return nil
+}
+
+func getService() (service.Service, error) {
+	svcConfig := &service.Config{
+		Name:        "go-supervisord",
+		DisplayName: "go-supervisord",
+		Description: "Supervisord service in golang",
+	}
+	prg := &program{}
+	s, err := service.New(prg, svcConfig)
+	if err != nil {
+		log.Error("service init failed", err)
+		return nil, err
+	}
+
+	return s, err
 }
 
 // Execute implement Execute() method defined in flags.Commander interface, executes the given command

@@ -168,7 +168,8 @@ func main() {
 				logFile := getSupervisordLogFile(options.Configuration)
 				Daemonize(logFile, runServer)
 			} else {
-				runServer()
+				s, _ := getService();
+				s.Run();
 			}
 			os.Exit(0)
 		}
