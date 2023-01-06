@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	fmt.Println("Start main function - go_test_api.exe")
 	wg := new(sync.WaitGroup)
 
 	wg.Add(1)
@@ -22,6 +23,7 @@ func main() {
 	}()
 
 	wg.Wait()
+	fmt.Println("End main function - go_test_api.exe")
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
