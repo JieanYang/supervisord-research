@@ -55,6 +55,8 @@ if [ -f "$FILE" ]; then
 fi
 sudo cp ./go_test_api/go_test_api /usr/local/bin/go_test_api
 
+sudo mkdir /supervisord
+
 # Start service
 # ./supervisord -c supervisord-linux.conf -d
 
