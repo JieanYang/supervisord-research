@@ -14,9 +14,9 @@ choco install -y golang git.install
 New-Alias -Name git -Value 'C:\Program Files\Git\bin\git.exe'
 New-Alias -Name go -Value 'C:\Program Files\Go\bin\go.exe'
 
-git clone --branch dev https://github.com/JieanYang/supervisord-research.git
+git clone --branch dev https://github.com/JieanYang/supervisord-research.git C:\\Users\\Administrator\\supervisord-research
 
-cd supervisord-research
+cd C:\\Users\\Administrator\\supervisord-research
 go build
 go build -o ./go_test_api/go_test_api.exe ./go_test_api/go_test_api.go
 
@@ -26,5 +26,5 @@ New-NetFirewallRule -DisplayName 'Go-application' -Profile @('Domain', 'Public',
 # .\supervisord.exe -c .\supervisord-windows.conf
 
 # Register service as daemon
-.\supervisord.exe service install -c C:\Users\Jiean\Desktop\work\supervisord-research\supervisord-windows.conf
+.\supervisord.exe service install -c C:\Users\Administrator\supervisord-research\supervisord-windows.conf
 .\supervisord.exe service start
