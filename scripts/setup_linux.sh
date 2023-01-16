@@ -6,20 +6,14 @@
 # echo "2022-12-30-third_script" >> "third_script_output.txt"
 
 # Update pacakges
-# sudo yum update -y
+sudo yum update -y
 
 # Install git
-winget install --id Git.Git -e --source winget
+sudo yum install git -y
 git version
 
-# Fetch Go repository
-git clone https://go.googlesource.com/go goroot
-cd goroot
-# git checkout <tag>
-
 # Install go
-cd src
-./all.bat
+sudo yum install golang -y
 go version
 
 # Pull github
@@ -55,7 +49,7 @@ FILE=./go_test_api/go_test_api
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
-go build -o ./go_test_api/go_test_api.exe ./go_test_api/go_test_api.go
+go build -o ./go_test_api/go_test_api ./go_test_api/go_test_api.go
 chmod +x ./go_test_api/go_test_api
 
 # Copy binary app
