@@ -26,5 +26,5 @@ New-NetFirewallRule -DisplayName 'Go-application' -Profile @('Domain', 'Public',
 # .\supervisord.exe -c .\supervisord-windows.conf
 
 # Register service as daemon
-# .\supervisord.exe service install -c C:\Users\Jiean\Desktop\work\supervisord-research\supervisord-windows.conf
-# .\supervisord.exe service start
+.\supervisord.exe service install -c C:\Users\Jiean\Desktop\work\supervisord-research\supervisord-windows.conf
+.\supervisord.exe service start
