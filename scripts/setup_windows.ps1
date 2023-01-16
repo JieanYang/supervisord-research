@@ -21,7 +21,7 @@ go build
 go build -o ./go_test_api/go_test_api.exe ./go_test_api/go_test_api.go
 
 New-NetFirewallRule -DisplayName 'Go-application' -Profile @('Domain', 'Public','Private') -Direction Inbound -Action Allow -Protocol TCP -LocalPort @('9001')
-mkdir C:\\supervisord
+New-Item 'C:\\supervisord' -Type Directory
 
 # Start service
 # .\supervisord.exe -c .\supervisord-windows.conf
