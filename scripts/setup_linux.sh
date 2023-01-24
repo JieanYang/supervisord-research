@@ -30,11 +30,7 @@ else
   ###  Control will jump here if $DIR does NOT exists ###
   # echo "Error: ${DIR} not found. Can not continue."
   # exit 1
-<<<<<<< HEAD
-  git clone --branch service-fix https://github.com/JieanYang/supervisord-research.git
-=======
   git clone --branch dev https://github.com/JieanYang/supervisord-research.git
->>>>>>> 7590bc7 (Update scripts files)
   cd supervisord-research
 fi
 
