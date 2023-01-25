@@ -17,49 +17,50 @@ sudo yum install golang -y
 go version
 
 # Pull github
-cd ~
-DIR=~/supervisord-research
-if [ -d "$DIR" ]; then
-  ### Take action if $DIR exists ###
-  # echo "Installing config files in ${DIR}..."
+cd /
+DIR_SUPERVISORD_RESEARCH=/supervisord-research
+if [ -d "$DIR_SUPERVISORD_RESEARCH" ]; then
+  ### Take action if $DIR_SUPERVISORD_RESEARCH exists ###
+  # echo "Installing config files in ${DIR_SUPERVISORD_RESEARCH}..."
   cd supervisord-research
   git add .
   git reset --h HEAD
   git pull
 else
-  ###  Control will jump here if $DIR does NOT exists ###
-  # echo "Error: ${DIR} not found. Can not continue."
+  ###  Control will jump here if $DIR_SUPERVISORD_RESEARCH does NOT exists ###
+  # echo "Error: ${DIR_SUPERVISORD_RESEARCH} not found. Can not continue."
   # exit 1
-  git clone --branch dev https://github.com/JieanYang/supervisord-research.git
+  sudo git clone --branch dev https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
   cd supervisord-research
 fi
 
 # Build supervisord
-FILE=./supervisord
+FILE="${DIR_SUPERVISORD_RESEARCH}/supervisord"
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
-go build
+sudo go build
 
-FILE=./go_test_api/go_test_api
+FILE="${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
-go build -o ./go_test_api/go_test_api ./go_test_api/go_test_api.go
-chmod +x ./go_test_api/go_test_api
+sudo go build -o "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api.go"
+sudo chmod +x "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
 
 # Copy binary app
 FILE=/usr/local/bin/go_test_api
 if [ -f "$FILE" ]; then
     sudo rm $FILE
 fi
-sudo cp ./go_test_api/go_test_api /usr/local/bin/go_test_api
+sudo cp "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" /usr/local/bin/go_test_api
 
-sudo mkdir /supervisord
+DIR_SUPERVISORD_LOG=/supervisord
+sudo mkdir $DIR_SUPERVISORD_LOG
 
 # Start service
 # ./supervisord -c supervisord-linux.conf -d
 
 # Register service as daemon
-sudo ./supervisord service install -c ~/supervisord-research/supervisord-linux.conf
-sudo ./supervisord service start
+sudo "${DIR_SUPERVISORD_RESEARCH}/supervisord" service install -c "${DIR_SUPERVISORD_RESEARCH}/supervisord-linux.conf"
+sudo "${DIR_SUPERVISORD_RESEARCH}/supervisord" service start
