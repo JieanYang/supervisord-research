@@ -22,7 +22,7 @@ DIR_SUPERVISORD_RESEARCH=/supervisord-research
 if [ -d "$DIR_SUPERVISORD_RESEARCH" ]; then
   ### Take action if $DIR_SUPERVISORD_RESEARCH exists ###
   # echo "Installing config files in ${DIR_SUPERVISORD_RESEARCH}..."
-  cd supervisord-research
+  cd $DIR_SUPERVISORD_RESEARCH
   git add .
   git reset --h HEAD
   git pull
@@ -30,8 +30,10 @@ else
   ###  Control will jump here if $DIR_SUPERVISORD_RESEARCH does NOT exists ###
   # echo "Error: ${DIR_SUPERVISORD_RESEARCH} not found. Can not continue."
   # exit 1
+  echo "Clone github repository-start"
   sudo git clone --branch dev https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
-  cd supervisord-research
+  cd $DIR_SUPERVISORD_RESEARCH
+  echo "Clone github repository-end"
 fi
 
 # Build supervisord
