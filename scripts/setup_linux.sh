@@ -31,8 +31,9 @@ else
   # echo "Error: ${DIR_SUPERVISORD_RESEARCH} not found. Can not continue."
   # exit 1
   echo "Clone github repository-start"
-  sudo git clone --branch dev https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
+  sudo git clone --branch dev-helloWOrldGoAgent https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
   cd $DIR_SUPERVISORD_RESEARCH
+  git submodule update --init --recursive
   echo "Clone github repository-end"
 fi
 
@@ -47,7 +48,7 @@ FILE="${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
-sudo go build -o "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api.go"
+sudo go build -o "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" "${DIR_SUPERVISORD_RESEARCH}/helloWorldGoAgent/src/main.go"
 sudo chmod +x "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
 
 # Copy binary app

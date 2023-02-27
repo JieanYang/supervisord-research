@@ -1,4 +1,3 @@
-// App go_test_api_block
 package main
 
 import (

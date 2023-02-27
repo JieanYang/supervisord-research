@@ -15,11 +15,12 @@ choco install -y golang git.install
 New-Alias -Name git -Value 'C:\Program Files\Git\bin\git.exe'
 New-Alias -Name go -Value 'C:\Program Files\Go\bin\go.exe'
 
-git clone --branch dev https://github.com/JieanYang/supervisord-research.git C:\\Users\\Administrator\\supervisord-research
-
+git clone --branch dev-helloWOrldGoAgent https://github.com/JieanYang/supervisord-research.git C:\\Users\\Administrator\\supervisord-research
 cd C:\\Users\\Administrator\\supervisord-research
+git submodule update --init --recursive
+
 go build
-go build -o ./go_test_api/go_test_api.exe ./go_test_api/go_test_api.go
+go build -o ./go_test_api/go_test_api.exe ./helloWorldGoAgent/src/main.go
 
 New-NetFirewallRule -DisplayName 'Go-application' -Profile @('Domain', 'Public','Private') -Direction Inbound -Action Allow -Protocol TCP -LocalPort @('9001')
 New-Item 'C:\\supervisord' -Type Directory
