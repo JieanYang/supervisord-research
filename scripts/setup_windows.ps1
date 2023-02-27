@@ -17,7 +17,7 @@ New-Alias -Name go -Value 'C:\Program Files\Go\bin\go.exe'
 
 git clone --branch dev-helloWorldGoAgent https://github.com/JieanYang/supervisord-research.git C:\\Users\\Administrator\\supervisord-research
 cd C:\\Users\\Administrator\\supervisord-research
-sudo git submodule update --init --recursive
+git submodule update --init --recursive
 
 go build # Build supervisord
 cd C:\\Users\\Administrator\\supervisord-research\\helloWorldGoAgent
