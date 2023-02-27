@@ -19,7 +19,7 @@ go version
 # Pull github
 cd /
 DIR_SUPERVISORD_RESEARCH=/supervisord-research
-DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT=/supervisord-research/helloWOrldGoAgent
+DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT=/supervisord-research/helloWorldGoAgent
 if [ -d "$DIR_SUPERVISORD_RESEARCH" ]; then
   ### Take action if $DIR_SUPERVISORD_RESEARCH exists ###
   # echo "Installing config files in ${DIR_SUPERVISORD_RESEARCH}..."
@@ -32,7 +32,7 @@ else
   # echo "Error: ${DIR_SUPERVISORD_RESEARCH} not found. Can not continue."
   # exit 1
   echo "Clone github repository-start"
-  sudo git clone --branch dev-helloWOrldGoAgent https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
+  sudo git clone --branch dev-helloWorldGoAgent https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
   cd $DIR_SUPERVISORD_RESEARCH
   sudo git submodule update --init --recursive
   echo "Clone github repository-end"
@@ -45,6 +45,8 @@ if [ -f "$FILE" ]; then
 fi
 sudo go build
 
+# Build go_test_api
+echo "Build go_test_api"
 FILE="${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
 if [ -f "$FILE" ]; then
     rm $FILE

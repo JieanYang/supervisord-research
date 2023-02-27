@@ -15,12 +15,12 @@ choco install -y golang git.install
 New-Alias -Name git -Value 'C:\Program Files\Git\bin\git.exe'
 New-Alias -Name go -Value 'C:\Program Files\Go\bin\go.exe'
 
-git clone --branch dev-helloWOrldGoAgent https://github.com/JieanYang/supervisord-research.git C:\\Users\\Administrator\\supervisord-research
+git clone --branch dev-helloWorldGoAgent https://github.com/JieanYang/supervisord-research.git C:\\Users\\Administrator\\supervisord-research
 cd C:\\Users\\Administrator\\supervisord-research
 sudo git submodule update --init --recursive
 
 go build # Build supervisord
-cd C:\\Users\\Administrator\\supervisord-research\\helloWOrldGoAgent
+cd C:\\Users\\Administrator\\supervisord-research\\helloWorldGoAgent
 go build -o ../go_test_api/go_test_api.exe ./src/main.go
 cd C:\\Users\\Administrator\\supervisord-research
 
