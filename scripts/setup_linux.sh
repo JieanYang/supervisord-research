@@ -33,7 +33,7 @@ else
   echo "Clone github repository-start"
   sudo git clone --branch dev-helloWOrldGoAgent https://github.com/JieanYang/supervisord-research.git $DIR_SUPERVISORD_RESEARCH
   cd $DIR_SUPERVISORD_RESEARCH
-  git submodule update --init --recursive
+  sudo git submodule update --init --recursive
   echo "Clone github repository-end"
 fi
 
