@@ -19,8 +19,11 @@ git clone --branch dev-helloWOrldGoAgent https://github.com/JieanYang/supervisor
 cd C:\\Users\\Administrator\\supervisord-research
 sudo git submodule update --init --recursive
 
-go build
-go build -o ./go_test_api/go_test_api.exe ./helloWorldGoAgent/src/main.go
+go build # Build supervisord
+cd C:\\Users\\Administrator\\supervisord-research\\helloWOrldGoAgent
+go build -o ../go_test_api/go_test_api.exe ./src/main.go
+cd C:\\Users\\Administrator\\supervisord-research
+
 
 New-NetFirewallRule -DisplayName 'Go-application' -Profile @('Domain', 'Public','Private') -Direction Inbound -Action Allow -Protocol TCP -LocalPort @('9001')
 New-Item 'C:\\supervisord' -Type Directory
