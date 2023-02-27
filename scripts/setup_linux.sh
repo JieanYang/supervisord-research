@@ -52,7 +52,7 @@ if [ -f "$FILE" ]; then
     rm $FILE
 fi
 cd $DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT
-sudo go build -o "${DIR_SUPERVISORD_RESEARCH}/../go_test_api/go_test_api" "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/main.go"
+sudo go build -o "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/main.go"
 cd $DIR_SUPERVISORD_RESEARCH
 sudo chmod +x "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
 
