@@ -21,7 +21,7 @@ git submodule update --init --recursive
 
 go build # Build supervisord
 cd C:\\Users\\Administrator\\supervisord-research\\helloWorldGoAgent
-go build -o ../go_test_api/go_test_api.exe ./src/main.go
+go build -o ./src/helloWorldGoAgent.exe ./src/main.go
 cd C:\\Users\\Administrator\\supervisord-research
 
 
