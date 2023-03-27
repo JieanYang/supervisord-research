@@ -168,8 +168,8 @@ func main() {
 				logFile := getSupervisordLogFile(options.Configuration)
 				Daemonize(logFile, runServer)
 			} else {
-				s, _ := getService();
-				s.Run();
+				s, _ := getService()
+				s.Run()
 			}
 			os.Exit(0)
 		}
