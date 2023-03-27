@@ -67,7 +67,6 @@ func (sc ServiceCommand) Execute(args []string) error {
 		DisplayName: "go-supervisord",
 		Description: "Supervisord service in golang",
 		Arguments:   serviceArgs,
-		// Executable: "C:\\windows\\system32\\cmd.exe", // For windows
 	}
 	prg := &program{}
 	s, err := service.New(prg, svcConfig)
@@ -77,7 +76,6 @@ func (sc ServiceCommand) Execute(args []string) error {
 	}
 
 	action := args[0]
-	fmt.Println("action", action)
 	switch action {
 	case "install":
 		err := s.Install()
@@ -88,15 +86,6 @@ func (sc ServiceCommand) Execute(args []string) error {
 		} else {
 			fmt.Println("Succeed to install service go-supervisord")
 		}
-
-		// err_2 := s.Start()
-		// if err_2 != nil {
-		// 	log.Error("Failed to start service: ", err_2)
-		// 	fmt.Println("Failed to start service: ", err_2)
-		// 	return err_2
-		// } else {
-		// 	fmt.Println("Succeed to start service go-supervisord")
-		// }
 	case "uninstall":
 		s.Stop()
 		err := s.Uninstall()
@@ -108,7 +97,6 @@ func (sc ServiceCommand) Execute(args []string) error {
 			fmt.Println("Succeed to uninstall service go-supervisord")
 		}
 	case "start":
-		fmt.Println("start case")
 		err := s.Start()
 		if err != nil {
 			log.Error("Failed to start service: ", err)
