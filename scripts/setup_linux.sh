@@ -20,6 +20,7 @@ go version
 cd /
 DIR_SUPERVISORD_RESEARCH=/supervisord-research
 DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT=/supervisord-research/helloWorldGoAgent
+
 if [ -d "$DIR_SUPERVISORD_RESEARCH" ]; then
   ### Take action if $DIR_SUPERVISORD_RESEARCH exists ###
   # echo "Installing config files in ${DIR_SUPERVISORD_RESEARCH}..."
@@ -45,23 +46,23 @@ if [ -f "$FILE" ]; then
 fi
 sudo go build
 
-# Build go_test_api
-echo "Build go_test_api"
-FILE="${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
+# Build helloWorldGoAgent
+echo "Build helloWorldGoAgent"
+FILE="${DIR_SUPERVISORD_RESEARCH}/helloWorldGoAgent/src/helloWorldGoAgent"
 if [ -f "$FILE" ]; then
     rm $FILE
 fi
 cd $DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT
-sudo go build -o "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/main.go"
-cd $DIR_SUPERVISORD_RESEARCH
-sudo chmod +x "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api"
+sudo go build -o "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/helloWorldGoAgent" "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/main.go"
+# cd $DIR_SUPERVISORD_RESEARCH
+sudo chmod +x "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/helloWorldGoAgent"
 
 # Copy binary app
-FILE=/usr/local/bin/go_test_api
+FILE=/usr/local/bin/helloWorldGoAgent
 if [ -f "$FILE" ]; then
     sudo rm $FILE
 fi
-sudo cp "${DIR_SUPERVISORD_RESEARCH}/go_test_api/go_test_api" /usr/local/bin/go_test_api
+sudo cp "${DIR_SUPERVISOID_RESEARCH_HELLOWORLD_GO_AGENT}/src/helloWorldGoAgent" /usr/local/bin/helloWorldGoAgent
 
 DIR_SUPERVISORD_LOG=/supervisord
 sudo mkdir $DIR_SUPERVISORD_LOG
