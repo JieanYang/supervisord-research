@@ -8,6 +8,8 @@ This is a code repository with a two-layer structure, and I will explain the fol
 - /helloWorldGoAgent: This is another code repository, and it contians our agent appliation. Please refer to the README.d file for more details.
 - Other files: These file make up the application layer of OS service. They are from a fork of ochinchina/supervisord.
 
+Afterwards is the default content:
+
 # Why this project?
 
 The python script supervisord is a powerful tool used by a lot of guys to manage the processes. I like supervisord too.
