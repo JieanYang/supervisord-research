@@ -1,8 +1,16 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/ochinchina/supervisord)](https://goreportcard.com/report/github.com/ochinchina/supervisord)
 
+# Added by Jiean
+
+This is a code repository with a two-layer structure, and I will explain the folder structure:
+
+- /scripts: This folder contains the setup agent script required when creating a VM in CSP(Cloud Service Provider).
+- /helloWorldGoAgent: This is another code repository, and it contians our agent appliation. Please refer to the README.d file for more details.
+- Other files: These file make up the application layer of OS service. They are from a fork of ochinchina/supervisord.
+
 # Why this project?
 
-The python script supervisord is a powerful tool used by a lot of guys to manage the processes. I like  supervisord too.
+The python script supervisord is a powerful tool used by a lot of guys to manage the processes. I like supervisord too.
 
 But this tool requires that the big python environment be installed in target system. In some situation, for example in the docker environment, the python is too big for us.
 
@@ -36,7 +44,6 @@ Please note that config-file location autodetected in this order:
 4. /etc/supervisor/supervisord.conf (since Supervisor 3.3.0)
 5. ../etc/supervisord.conf (Relative to the executable)
 6. ../supervisord.conf (Relative to the executable)
-
 
 # Run as daemon with web-ui
 
@@ -118,7 +125,7 @@ Following parameters configured in "supervisord" section:
 
 Supervised program settings configured in [program:programName] section and include these options:
 
-- **command**. Command to supervise. It can be given as full path to executable or can be calculated via PATH variable. Command line parameters also should be supplied in this string. 
+- **command**. Command to supervise. It can be given as full path to executable or can be calculated via PATH variable. Command line parameters also should be supplied in this string.
 - **process_name**. the process name
 - **numprocs**. number of process
 - **numprocs_start**. ??
@@ -214,16 +221,17 @@ stdout_logfile = test.log, /dev/stdout
 ### syslog settings
 
 if write the log to the syslog, following additional parameter can be set like:
+
 ```ini
 syslog_facility=local0
 syslog_tag=test
 syslog_stdout_priority=info
 syslog_stderr_priority=err
 ```
+
 - **syslog_facility**, can be one of(case insensitive): KERNEL, USER, MAIL, DAEMON, AUTH, SYSLOG, LPR, NEWS, UUCP, CRON, AUTHPRIV, FTP, LOCAL0~LOCAL7
 - **syslog_stdout_priority**, can be one of(case insensitive): EMERG, ALERT, CRIT, ERR, WARN, NOTICE, INFO, DEBUG
 - **syslog_stderr_priority**, can be one of(case insensitive): EMERG, ALERT, CRIT, ERR, WARN, NOTICE, INFO, DEBUG
-
 
 # Web GUI
 
@@ -257,8 +265,7 @@ CMD ["/usr/local/bin/supervisord"]
 
 The Prometheus node exporter supported supervisord metrics are now integrated into the supervisor. So there is no need to deploy an extra node_exporter to collect the supervisord metrics. To collect the metrics, the port parameter in section "inet_http_server" must be configured and the metrics server is started on the path /metrics of the supervisor http server.
 
-For example, if the port parameter in "inet_http_server" is "127.0.0.1:9001" and then the metrics server should be accessed in url "http://127.0.0.1:9001/metrics" 
-
+For example, if the port parameter in "inet_http_server" is "127.0.0.1:9001" and then the metrics server should be accessed in url "http://127.0.0.1:9001/metrics"
 
 # Register service
 
@@ -274,4 +281,3 @@ supervisord service start
 # stop
 supervisord service stop
 ```
-
